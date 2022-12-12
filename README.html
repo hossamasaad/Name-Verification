@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="name-verification">Name Verification</h1>
+<p>Name verification is the process of detecting if the entered arabic triple name is real or not.</p>
+<h2 id="how-to-build-the-docker-image">How to build the docker image?</h2>
+<ol>
+<li>you can download the project and use the following command</li>
+</ol>
+<pre class="hljs"><code><div>$ docker-compose up
+</div></code></pre>
+<h2 id="how-to-use-the-solution">How to use the solution?</h2>
+<p>The API hosted on: <code>https://0.0.0.0:8000</code> on the host or in the container <br>
+You can test it using one of the following ways:</p>
+<ol>
+<li>
+<p>Use the predifined tests on <code>/tests/test_API.py</code>:</p>
+<pre class="hljs"><code><div>$ pytest &lt;project-path&gt;/tests/test_API.py
+</div></code></pre>
+</li>
+<li>
+<p>Run the <code>/API/client.py</code> and enter the names yourself</p>
+<pre class="hljs"><code><div>$ python &lt;project-path&gt;/API/client.py
+</div></code></pre>
+</li>
+<li>
+<p>Using curl</p>
+<pre class="hljs"><code><div>curl -X 'POST' \
+'http://0.0.0.0:8000/is_real_name/' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+&quot;name&quot;: &quot;حسام اسعد رجب&quot;
+}'
+</div></code></pre>
+</li>
+<li>
+<p>Or go to the automaticly generated documentation from FastAPI at <code>https://0.0.0.0:8000/docs</code> you can see the API documentation and test it.</p>
+</li>
+</ol>
+<h2 id="how-to-verify-the-result">How to verify the result ?</h2>
+<ul>
+<li>You can verfiy the results using one of the last ways to test the app, or use predifined tests in <code>test/test_API</code></li>
+<li>You can install all requirements in <code>requirements.txt</code> and go throw the notebook, I designed the notebook in such a way that each section can be run independently.</li>
+</ul>
+<br>
+<h1 id="more-about-the-project">More about the project</h1>
+<h2 id="dataset">Dataset</h2>
+<p>I have 3 dataset</p>
+<ol>
+<li><code>Arabic_names.csv</code> : contains males and females names</li>
+<li><code>fnames.txt</code> : contains females names only</li>
+<li><code>mnames.txt</code> : contains males names only</li>
+</ol>
+<h2 id="project-structure">Project structure</h2>
+<pre class="hljs"><code><div>.
+├── requirements.txt              &lt;!--- Requirements ---&gt;
+├── docker-compose.yml
+├── Dockerfile
+├── README.md
+├── src                           &lt;!--- The main package ---&gt;
+│   ├── __init__.py
+│   ├── data                      &lt;!--- The package that conatins all modules used in data exploring, preprocessing, visualizing and generating ---&gt;
+│   │   ├── __init__.py           
+│   │   ├── explorer.py
+│   │   ├── generatedata.py
+│   │   ├── preprocess.py
+│   │   └── viualize.py
+│   └── models                     &lt;!--- The package that conatins all modules used in training model ---&gt;
+│       ├── __init__.py
+│       ├── evaluator.py
+│       ├── model.py
+│       ├── prediction.py
+│       └── tokenizer.py
+├── notebooks                      &lt;!--- Notebooks ---&gt;
+│   └── Name-Verification.ipynb
+├── API                            &lt;!--- API server and client ---&gt;
+│   ├── client.py
+│   └── server.py
+├── data                           &lt;!--- Datasets ---&gt;
+│   ├── processed                  &lt;!--- Processed data ---&gt;
+│   │   ├── final_data.csv
+│   │   ├── fm_names.pkl
+│   │   ├── processed_data.csv
+│   │   ├── test_labels.pkl
+│   │   ├── test_padded.pkl
+│   │   ├── train_labels.pkl
+│   │   ├── train_padded.pkl
+│   │   ├── valid_labels.pkl
+│   │   └── valid_padded.pkl
+│   └── raw                        &lt;!--- Raw data ---&gt;
+│       ├── Arabic_names.csv
+│       ├── fnames.txt
+│       └── mnames.txt
+├── models                         &lt;!--- Saved models ---&gt;
+│   ├── history_v1.pkl
+│   ├── history_v2.pkl
+│   ├── history_v3.pkl
+│   ├── model_v1.pkl
+│   ├── model_v2.pkl
+│   └── model_v3.pkl
+├── reports                        &lt;!--- Generated reports throw the project ---&gt;
+│   ├── training.csv
+│   └── figures
+│       ├── accuracy.png
+│       ├── confusion_matrix.png
+│       ├── gender_counts.png
+│       ├── gender_percentage.png
+│       └── loss.png
+│
+└── tests                           &lt;!--- Test package to test app methods using pytest---&gt;
+    ├── conftest.py
+    ├── fake_data.csv
+    ├── pytest.ini
+    ├── test_API.py
+    ├── test_data.py
+    └── test_tokenizer.py
+</div></code></pre>
+<h2 id="the-project-pipline">The project pipline</h2>
+<p>I designed the notebook in such a way that each section can be run independently.</p>
+<h3 id="1-data-cleaning-and-combining">1. Data cleaning and combining</h3>
+<p>I have 3 dataset</p>
+<ol>
+<li><code>Arabic_names.csv</code> : contains males and females names</li>
+<li><code>fnames.txt</code> : contains females names only</li>
+<li><code>mnames.txt</code> : contains males names only</li>
+</ol>
+<p>Steps</p>
+<ol>
+<li>
+<p>First load and combine these data together.</p>
+</li>
+<li>
+<p>The data contains alot of duplicated raws and wrong names like <code>سعيدة بضم السين</code> so I should drop them.</p>
+</li>
+<li>
+<p>There are some compound names (names that consist of two parts) like <code>أم كلثوم</code>, so splitting these parts with a space would result on getting the first part of the compund name as the full name, the approach that will be used to handle this problem is to replace the space between the two parts of the compound name with <code>-</code> and treat the compound name as a one word.</p>
+</li>
+<li>
+<p>There are some names that are considered male or female names so I saved them to care about while generating the wrong data
+<img src="reports/figures/gender_counts.png" width="470"> <img src="reports/figures/gender_percentage.png" width="470"></p>
+</li>
+</ol>
+<h3 id="2-data-generation">2. Data Generation</h3>
+<p>The arabic name structure consist of <code>Male or female name</code> + <code>Male name(father's name)</code> + <code>Male name (grandpa's name)</code></p>
+<ul>
+<li>I will generate 2 million correct random names using these steps:
+<ul>
+<li>Get random male or female name</li>
+<li>Get random male name</li>
+<li>Get random male name</li>
+<li>Combine these names together</li>
+</ul>
+</li>
+<li>I will generate 2 million wrong random names using these steps:
+<ul>
+<li>50% of the data consist of wrong names
+<ul>
+<li>Get random male or female name and change a letter randomly</li>
+<li>Get random male name and change a letter randomly</li>
+<li>Get random male name and change a letter randomly</li>
+<li>Combine these names together</li>
+</ul>
+</li>
+<li>20% of the data consist of <code>Male or female name</code> + <code>Male name</code>   + <code>Female name</code>  &lt;!- Wrong name structure -&gt;</li>
+<li>20% of the data consist of <code>Male or female name</code> + <code>Female name</code> + <code>Male name</code>    &lt;!- Wrong name structure -&gt;</li>
+<li>10% of the data consist of <code>Male or female name</code> + <code>Female name</code> + <code>Female name</code>  &lt;!- Wrong name structure -&gt;</li>
+</ul>
+</li>
+<li>There were some repeated rows so I dropped them</li>
+</ul>
+<h3 id="3-modeling">3. Modeling</h3>
+<h4 id="preprocessing">Preprocessing</h4>
+<ul>
+<li>
+<p>spliting the data into 99% training set, 0.5% for validation 0.5 for testing</p>
+<ul>
+<li>Training   set size:  3798415</li>
+<li>Validation set size:  99958</li>
+<li>Testing    set size:  99958</li>
+</ul>
+</li>
+<li>
+<p>Creating a tokenizer to convert names to sequence of numbers</p>
+<ul>
+<li>I will work on letters level so I mapped each letter to number</li>
+<li>In arabic words there are some letters that is commonly typed in different forms but mean the same letter, this inconsistency should be solved to map the letters that are used interchangeably to only one number like <code>ا, أ, إ ,آ</code> &gt; <code>1</code></li>
+<li>Padded all sequences to the longest name</li>
+<li>I created my own tokenizer for two reasons:
+<ul>
+<li>work on letters levels and map more than letter to the same number as mentioned above</li>
+<li>I will use it in prediction it's faster than than importing pad_sequences from tensorflow and use it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="model">Model</h4>
+<ul>
+<li>Used Embedding Layer and Bidirectional LSTM Layer</li>
+<li>Used some callbacks:
+<ul>
+<li>Created a DetectOverfitting callback to stop training if val_loss/loss &gt; threshold</li>
+<li>EarlyStopping to save the best weights and stop if the model loss doesn't improve for 3 epochs</li>
+<li>CSVLogger to log training results into csv file</li>
+</ul>
+</li>
+<li>Used <code>Adam</code> Optimizer and <code>binary_crossentropy</code> loss function</li>
+</ul>
+<img src="reports/figures/arch.png" width="470">
+<h4 id="evaluation">Evaluation</h4>
+<ul>
+<li>
+<p>model_v1 (Before mapping some letters to same numbers):</p>
+<ul>
+<li>The model achieved high accuracy but failed to deal with letters that used interchangeably like <code>اسلام</code> and <code>إسلام</code></li>
+<li>So I decieded to map these letters to the same numbers as mentioned above</li>
+</ul>
+</li>
+<li>
+<p>model_v2:</p>
+<ul>
+<li>The model achieved high accuracy
+<img src="reports/figures/accuracy_v2.png" width="350"> <img src="reports/figures/loss_v2.png" width="350"> <img src="reports/figures/confusion_matrix_v2.png" width="350"></li>
+<li>After investigating the misclassified examples about 40 example because dealing with <code>بشري</code> and <code>بشرى</code> as the same name but in data generation deal with them as diffirent names so I have to edit them in dataset and deal with them as name can be male or female name.
+<img src="reports/figures/beshri.png" width="450"></li>
+</ul>
+</li>
+<li>
+<p>model_v3:</p>
+<ul>
+<li>The model achieved good results
+<img src="reports/figures/accuracy_v3.png" width="350"> <img src="reports/figures/loss_v3.png" width="350"> <img src="reports/figures/confusion_matrix_v3.png" width="350"></li>
+</ul>
+</li>
+</ul>
+<h2 id="results">Results</h2>
+<p>The model</p>
+<ul>
+<li>works well with single names like <code>حسام</code> <code>وليد</code></li>
+<li>can classify names as real names even if they weren't in the dataset like <code>اسماعيل</code> <code>السيد</code> <code>دعاء</code></li>
+<li>detects that <code>دعاء</code> is a female name, it predicts that <code>دعاء محمد</code> as correct name but <code>محمد دعاء</code>  or <code>محمد حسام دعاء</code> as wrong name</li>
+<li>it detects that <code>اسماعيل</code> as male name it predicts that <code>اسماعيل محمد</code>, <code>محمد اسماعيل</code>, <code>محمد حسام اسماعيل</code> as correct name</li>
+<li>can't predict some names like <code>هويدا</code> and <code>وحيد</code></li>
+<li>works well with double names and triple names</li>
+<li>can detect the name is real even if it has some wrong letters or added letters.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>The model works well in general, it detects the pattern of some new names, but the dataset should contains more names</li>
+<li>When generating the wrong names, We have to add more worng names of diffrent length, more small names.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>Python</li>
+<li>numpy</li>
+<li>pandas</li>
+<li>matplotlib</li>
+<li>Scikit-learn</li>
+<li>Tensorflow</li>
+<li>PyTest</li>
+<li>FastAPI</li>
+<li>Docker</li>
+</ul>
+
+</body>
+</html>
