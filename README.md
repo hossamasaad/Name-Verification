@@ -1,3 +1,9 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/hossamasaad/Name-Verification)
+![GitHub contributors](https://img.shields.io/github/contributors/hossamasaad/Name-Verification)
+![GitHub stars](https://img.shields.io/github/stars/hossamasaad/Name-Verification?style=social)
+![GitHub forks](https://img.shields.io/github/forks/hossamasaad/Name-Verification?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/hossamasaad10?style=social)
+
 # Name Verification
 Name verification is the process of detecting if the entered arabic triple name is real or not.
 
@@ -132,9 +138,9 @@ Steps
 1. First load and combine these data together.
 2. The data contains alot of duplicated raws and wrong names like `سعيدة بضم السين` so I should drop them.
 3. There are some compound names (names that consist of two parts) like `أم كلثوم`, so splitting these parts with a space would result on getting the first part of the compund name as the full name, the approach that will be used to handle this problem is to replace the space between the two parts of the compound name with `-` and treat the compound name as a one word.
-
 4. There are some names that are considered male or female names so I saved them to care about while generating the wrong data
-<img src="reports/figures/gender_counts.png" width="470"> <img src="reports/figures/gender_percentage.png" width="470"> 
+
+<img src="reports/figures/gender_counts.png" width="400"> <img src="reports/figures/gender_percentage.png" width="400"> 
 
 
      
@@ -194,13 +200,21 @@ The arabic name structure consist of `Male or female name` + `Male name(father's
 
 - model_v2:
     - The model achieved high accuracy
-        <img src="reports/figures/accuracy_v2.png" width="350"> <img src="reports/figures/loss_v2.png" width="350"> <img src="reports/figures/confusion_matrix_v2.png" width="350">
+    
+        <img src="reports/figures/accuracy_v2.png" width="300">
+        <img src="reports/figures/loss_v2.png" width="300">
+        <img src="reports/figures/confusion_matrix_v2.png" width="300"
+             
     - After investigating the misclassified examples about 40 example because dealing with `بشري` and `بشرى` as the same name but in data generation deal with them as diffirent names so I have to edit them in dataset and deal with them as name can be male or female name.
+             
         <img src="reports/figures/beshri.png" width="450">
 
 - model_v3:
     - The model achieved good results
-        <img src="reports/figures/accuracy_v3.png" width="350"> <img src="reports/figures/loss_v3.png" width="350"> <img src="reports/figures/confusion_matrix_v3.png" width="350">
+    
+        <img src="reports/figures/accuracy_v3.png" width="300">
+        <img src="reports/figures/loss_v3.png" width="300">
+        <img src="reports/figures/confusion_matrix_v3.png" width="300">
 
 
 
